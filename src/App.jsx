@@ -5,6 +5,7 @@ import Recommended from "./Recommended/Recommended";
 import Sidebar from "./Sidebar/Sidebar";
 import products from "./db/data";
 import Card from "./components/Card";
+import "./index.css"
 
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -27,7 +28,7 @@ const App = () => {
   };
 
   // Button fliter
-  const handleFilter = (event) => {
+  const handleClick = (event) => {
     setSelectedCategory(event.target.value);
   };
 
@@ -57,7 +58,7 @@ const App = () => {
           key={Math.random()}
           img={img}
           title={title}
-          star={star}
+          Star={star}
           reviews={reviews}
           prevPrice={prevPrice}
           newPrice={newPrice}
@@ -71,9 +72,9 @@ const App = () => {
   return (
     <>
       <Sidebar handleChange={handleChange} />
-      <Navigation />
-      <Recommended />
-      <Product />
+      <Navigation query={query} handleInputChange={handleInputChange} />
+      <Recommended handleClick={handleClick} />
+      <Product response={response} />
     </>
   );
 };
